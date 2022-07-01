@@ -24,3 +24,16 @@ class Vehicle {
     return `The vehicle is a ${this.make} ${this.model} from ${this.year}.`
   }
 }
+
+/** Create a class for Car
+ * - inherit from Vehicle
+ * - each car instance has a property numWheels with value of 4
+ */
+
+class Car extends Vehicle {
+  constructor (make, model, year) {
+    super(make, model, year);
+    this.numWheels = 4;
+  }
+}
+
