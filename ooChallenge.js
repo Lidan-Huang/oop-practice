@@ -37,3 +37,51 @@ class Car extends Vehicle {
   }
 }
 
+/** Create Motorcycle class
+ * - inherit from Vehicle
+ * - each instance should have a property numWheels with value of 2
+ * - reEngine method: returns "VROOM!"
+ */
+
+class Motorcycle extends Vehicle {
+  constructor (make, model, year) {
+    super (make, model, year);
+    this.numWheels = 2;
+  }
+
+  revEngine () {
+    return "VROOM!";
+  }
+}
+
+/**Create a class for a Garage(vehicles are empty, just need to provide capacity)
+ * - property: vehicles[]
+ * - property: capacity(number)
+ * - add method:
+ *  - not a vehicle: return "Only vehicles are allowed in here!"
+ *  - if the garage is at capacity, say "Sorry, we're full."
+ */
+
+class Garage {
+  constructor (capacity) {
+    this.capacity = capacity;
+    this.vehicles = [];
+  }
+
+  add (newVehicle) {
+    if (!(newVehicle instanceof Vehicle)) {
+      return "Only vehicles are allowed in here!";
+    }
+    if (this.vehicles.length >= this.capacity) return "Sorry, we're full.";
+    this.vehicles.push(newVehicle);
+    return "Vehicle added!";
+  }
+}
+let garage = new Garage(2);
+console.log(garage.vehicles);
+console.log(garage.add(new Car("Hyundai", "Elantra", 2015)));
+console.log(garage.vehicles);
+console.log(garage.add("Taco"));
+console.log(garage.add(new Motorcycle("Honda", "Nighthawk", 2000)));
+console.log(garage.vehicles);
+console.log(garage.add(new Motorcycle("Honda", "Nighthawk", 2001)));
